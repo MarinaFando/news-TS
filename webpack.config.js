@@ -8,14 +8,19 @@ const baseConfig = {
     mode: 'development',
     module: {
         rules: [
-            {
-                test: /\.css$/i,
-                use: ['style-loader', 'css-loader'],
-            },
+          {
+            test: /\.css$/i,
+            use: ['style-loader', 'css-loader'],
+          },
+          {
+            test: /\.ts$/,
+            use: 'ts-loader',
+            exclude: /node_modules/,
+          },
         ],
     },
     resolve: {
-        extensions: ['.js'],
+      extensions: ['.ts', '.js'],
     },
     output: {
         filename: 'index.js',
