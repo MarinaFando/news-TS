@@ -1,13 +1,12 @@
-import { NewsData } from "../view/appView";
+import { NewsData } from '../view/appView';
 
 interface BaseOptions {
-  apiKey: string;
+    apiKey: string;
 }
 
 interface MakeUrlOptions {
-  sources: string;
+    sources: string;
 }
-
 class Loader {
     baseLink: string;
     options: BaseOptions;
@@ -18,7 +17,7 @@ class Loader {
 
     getResp(
         { endpoint = '', options = {} as MakeUrlOptions },
-        callback = () => {
+        callback = (data: any) => {
             console.error('No callback for GET response');
         }
     ) {
@@ -39,14 +38,13 @@ class Loader {
         let url = `${this.baseLink}${endpoint}?`;
 
         Object.keys(urlOptions).forEach((key: string) => {
-          url += `${key}=${urlOptions[key as keyof typeof urlOptions]}&`;
-
+            url += `${key}=${urlOptions[key as keyof typeof urlOptions]}&`;
         });
 
         return url.slice(0, -1);
     }
 
-    load(method: string, endpoint: string, callback: (arg: NewsData) => void, options = {} as MakeUrlOptions) {
+    load(method: string, endpoint: string, callback: (data: NewsData) => void, options = {} as MakeUrlOptions) {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())
