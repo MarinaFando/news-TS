@@ -7,7 +7,7 @@ export interface NewsData {
     totalResults: number;
 }
 
-interface SourcesData {
+export interface SourcesData {
     sources: Source[];
     status: string;
 }
