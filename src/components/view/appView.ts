@@ -11,6 +11,7 @@ export interface SourcesData {
     sources: Source[];
     status: string;
 }
+export type CallbackData<T> = (data: T) => void;
 
 export class AppView {
     news: News;
