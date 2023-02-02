@@ -2,14 +2,14 @@ import AppController from '../controller/controller';
 import { AppView, NewsData, SourcesData } from '../view/appView';
 
 class App {
-    controller: AppController;
-    view: AppView;
+    protected controller: AppController;
+    protected view: AppView;
     constructor() {
         this.controller = new AppController();
         this.view = new AppView();
     }
 
-    start() {
+    public start() {
         const sourcesElement = document.querySelector('.sources');
         if (sourcesElement) {
             sourcesElement.addEventListener('click', (e) =>
