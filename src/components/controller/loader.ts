@@ -17,7 +17,7 @@ class Loader {
 
     getResp(
         { endpoint = '', options = {} as MakeUrlOptions },
-        callback = (data: any) => {
+        callback = () => {
             console.error('No callback for GET response');
         }
     ) {

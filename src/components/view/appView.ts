@@ -11,7 +11,6 @@ export interface SourcesData {
     sources: Source[];
     status: string;
 }
-export type CallbackData<T> = (data: T) => void;
 
 export class AppView {
     news: News;
@@ -21,12 +20,12 @@ export class AppView {
         this.sources = new Sources();
     }
 
-    drawNews(data: NewsData) {
+    drawNews(data?: NewsData) {
         const values = data?.articles ? data?.articles : [];
         this.news.draw(values);
     }
 
-    drawSources(data: SourcesData) {
+    drawSources(data?: SourcesData) {
         const values = data?.sources ? data?.sources : [];
         this.sources.draw(values);
     }
